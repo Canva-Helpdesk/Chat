@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: chat
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/session
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CHAT_DB_PATH
+        value: /var/data/chat.sqlite
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: chat-data
+      mountPath: /var/data
+      sizeGB: 1

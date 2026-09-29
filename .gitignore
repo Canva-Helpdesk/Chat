@@ -1,0 +1,6 @@
+node_modules/
+dist/
+chat.sqlite
+chat.sqlite-shm
+chat.sqlite-wal
+.envnode_modules
